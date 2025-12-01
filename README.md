@@ -32,7 +32,7 @@ This repository consists of implemented QFT algorithm on a specific quantum hard
 - https://journals.aps.org/prx/pdf/10.1103/PhysRevX.11.031049
 - https://pennylane.ai/qml/demos/tutorial_qft#defining-the-quantum-fourier-transform
 
-### Photonic/Optical Quanum Computing
+### Photonic/Optical Quantum Computing
 - https://arxiv.org/abs/quant-ph/0512071
 - https://arxiv.org/abs/2404.03367
 - https://strawberryfields.ai/photonics/
