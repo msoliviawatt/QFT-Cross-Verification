@@ -14,15 +14,16 @@ def qft_control_rotate(control: int, target: int, k: int):
 def qft_trapped_ion(n: int, config: list[list[int]], shots=1) -> map:
     # Initilize a new device
     dev = qml.device('ionq.simulator', api_key="MXzNBT3ZB0Xuiu6onAmXGaSqGCclASYq", wires=n, shots=shots)
-
-    for i in range(n):
-        if config[i] == 1:
-            qml.X(i)
     
     # We must assign the initial circuit function to every unique circuit created
     @qml.qnode(dev)
     def circuit():
         cnt = n
+
+        for i in range(n):
+            if config[i] == 1:
+                qml.X(i)
+
         for qubit in range(cnt):
             qml.Hadamard(wires=qubit)
             for control in range(qubit + 1, cnt):
