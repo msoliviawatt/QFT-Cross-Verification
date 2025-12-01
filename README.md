@@ -4,7 +4,7 @@ Simulations and interference/noise comparisions of the Quantum Fourier Transform
 ## Introduction
 This project tests and compares performance of the **Quantum Fourier Transform (QFT)** algorithm across three types of quantum computing platforms:
 
-** Photonic Quantum Computer via Perceval**
+**Photonic Quantum Computer via Perceval**
 - Uses SLOS (strong linear optical simulation) algorithm
 - [tbd]
 - [tbd]
@@ -32,10 +32,11 @@ This repository consists of implemented QFT algorithm on a specific quantum hard
 - https://journals.aps.org/prx/pdf/10.1103/PhysRevX.11.031049
 - https://pennylane.ai/qml/demos/tutorial_qft#defining-the-quantum-fourier-transform
 
-### Quantum Photonic Computing
+### Photonic/Optical Quanum Computing
 - https://arxiv.org/abs/quant-ph/0512071
 - https://arxiv.org/abs/2404.03367
 - https://strawberryfields.ai/photonics/
+- https://perceval.quandela.net/docs/v1.1/index.html
 
 ### Quantum Trapped-Ion Computing
 - https://docs.ionq.com/
