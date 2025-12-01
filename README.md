@@ -1,8 +1,13 @@
 # Quantum Fourier Transform Cross-Verification
-CS 4134 Final Project for Fall 2025
+Simulations and interference/noise comparisions of the Quantum Fourier Transform on various quantum devices
 
 ## Introduction
 This project tests and compares performance of the **Quantum Fourier Transform (QFT)** algorithm across three types of quantum computing platforms:
+
+** Photonic Quantum Computer via Perceval**
+- Uses SLOS (strong linear optical simulation) algorithm
+- [tbd]
+- [tbd]
 
 1. **Trapped-Ion Quantum Computer on IonQ platform**
 2. add text here
