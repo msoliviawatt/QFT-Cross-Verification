@@ -11,7 +11,7 @@ def qft_control_rotate(control: int, target: int, k: int):
     expo = -2 * np.pi / (1 << k)
     qml.ctrl(R, control = control)(expo, target)
 
-def qft_trapped_ion(n: int, config: list[list[int]], shots=1) -> map:
+def qft_trapped_ion(n: int, config: list[list[int]], shots=1024) -> map:
     # Initilize a new device
     dev = qml.device('ionq.simulator', api_key="MXzNBT3ZB0Xuiu6onAmXGaSqGCclASYq", wires=n, shots=shots)
     
