@@ -24,7 +24,7 @@ def swap_registers(circuit, n):
         circuit.swap(qubit, n-qubit-1)
     return circuit
 
-def qft_super_conducting(n: int, config: list[int], shots=1024, noise=false) -> dict:
+def qft_super_conducting(n: int, config: list[int], shots=1024, noise=False) -> dict:
     """
     Implements QFT on a Superconducting Quantum Computer Simulator (IBM Qiskit).
     Returns a sorted dictionary with all possible states included.
