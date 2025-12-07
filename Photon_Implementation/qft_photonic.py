@@ -64,8 +64,8 @@ def qft_photonic(num_qubits: int, config: list[list[int]], shots=1024):
     sampler = Sampler(processor)
     results = sampler.sample_count(shots)["results"]
 
-    print("QFT unitary on", N, "modes:")
-    pcvl.pdisplay(qft_unitary.U)
+    #print("QFT unitary on", N, "modes:")
+    #pcvl.pdisplay(qft_unitary.U)
 
     ret = {}
 
@@ -80,3 +80,53 @@ def qft_photonic(num_qubits: int, config: list[list[int]], shots=1024):
 
 # res_3 = qft_photonic(3, [0, 1, 1], shots = 1024)
 # print(res_3)
+
+# set remote config token
+from perceval import RemoteProcessor, NoiseModel, RemoteConfig
+from perceval.algorithm import Sampler
+
+# put api key here
+API_KEY = "_T_eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjE4MCwiZXhwIjoxNzY3NzMxNTU0LjE1ODg3MTR9.EcGJhx6iCNCDP-nt0v8Kjm8odFDlqy79rVjLCOT8kUgvmjfiU12TTn_cOwlDPbK2ViKxEWhqYt4H7el61_BljA"
+REMOTE_PLATFORM = "sim:belenos"
+
+remote_config = RemoteConfig()
+remote_config.set_token(API_KEY)
+remote_config.save()
+remote_simulator = RemoteProcessor(REMOTE_PLATFORM) 
+
+def qft_photonic_noisy(num_qubits, bitstring, shots = 1024, platform = REMOTE_PLATFORM, api_key = API_KEY, use_noise=True):
+    U = qft_matrix(num_qubits)
+    qft_unitary = pcvl.components.Unitary(U)
+
+    # noise model
+    noise = None
+    if use_noise:
+        noise = NoiseModel(transmittance = 0.1, indistinguishability = 0.95, g2 = 0.01)
+
+    processor = RemoteProcessor(platform, api_key, noise = noise)
+
+    try:
+        processor.set_circuit(qft_unitary)
+    except AttributeError:
+        processor.add(0, qft_unitary)
+
+    input_state = bitstring_to_fock(bitstring)
+    processor.with_input(input_state)
+    processor.min_detected_photons_filter(1)
+
+    sampler = Sampler(processor, max_shots_per_call = shots)
+    results = sampler.sample_count(shots)["results"]
+
+    #print("QFT unitary on", num_qubits, "modes:")
+    #pcvl.pdisplay(qft_unitary.U)
+
+    ret = {}
+
+    for key, value in results.items():
+        for i in range(len(key)):
+            if key[i] == 1:
+                ret[format(i, 'b').zfill(num_qubits)] = value 
+                break
+    ret = dict(sorted(ret.items()))
+
+    return ret
