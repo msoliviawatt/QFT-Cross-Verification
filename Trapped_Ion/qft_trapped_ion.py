@@ -44,3 +44,33 @@ def qft_trapped_ion(n: int, config: list[list[int]], shots=1024) -> map:
 
 # result = qft_trapped_ion(5, [1, 0, 1, 1, 1], 1024)
 # print(result)
+
+
+def qft_trapped_ion_noisy(n: int, config: list[list[int]], shots=1) -> map:
+    # Initilize a new device
+    dev = qml.device('default.mixed', wires=n, shots=shots)
+
+    # We must assign the initial circuit function to every unique circuit created
+    @qml.qnode(dev)
+    def circuit():
+        # Adding noise
+        for w in range(n):
+            qml.DepolarizingChannel(0.1, wires=w)
+
+        for i in range(n):
+            if config[i] == 1:
+                qml.X(i)
+            cnt = n
+        for qubit in range(cnt):
+            qml.Hadamard(wires=qubit)
+            for control in range(qubit + 1, cnt):
+                k = control - qubit + 1
+                qft_control_rotate(control, qubit, k)
+
+        return qml.counts()
+
+    result = circuit()
+
+    # fig, ax = qml.draw_mpl(circuit, style='pennylane', decimals=2)()
+
+    return result
