@@ -3,8 +3,11 @@ Simulations and interference/noise comparisions of the Quantum Fourier Transform
 
 ## Team
 Olivia Watt
+
 Thuan Van Tu
+
 Brenden Jeffryes
+
 Hoon Sung
 
 ## Introduction
