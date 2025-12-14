@@ -1,31 +1,42 @@
 # Quantum Fourier Transform Cross-Verification
 Simulations and interference/noise comparisions of the Quantum Fourier Transform on various quantum devices
 
+## Team
+Olivia Watt
+
+Thuan Van Tu
+
+Brenden Jeffryes
+
+Hoon Sung
+
 ## Introduction
-This project tests and compares performance of the **Quantum Fourier Transform (QFT)** algorithm across three types of quantum computing platforms:
+This project tests and compares performance of the **Quantum Fourier Transform (QFT)** algorithm across four different quantum computing platforms:
 
-**Photonic Quantum Computer via Perceval**
+**Quandela's Perceval Framework for Photonic Quantum Computing**
 - Uses SLOS (strong linear optical simulation) algorithm
-- [tbd]
-- [tbd]
+- Allows for both local and remote cloud simulations with a valid token
+- Produces results as Fock states that can be converted to bitstrings
 
-1. **Trapped-Ion Quantum Computer on IonQ platform**
-2. add text here
-3. add text here
+**PennyLane for Quantum Computing with Trapped Ions**
+- add text here
+- add text here
 
-This repository consists of implemented QFT algorithm on a specific quantum hardward model. The goal is to **cross-verufy results**, compare fidelities, gate counts, and other performance metrics.
+**IBM Qiskit for Superconducting Quantum Computers**
+- add text here
+- add text here
 
----
-
-## Repository Structure
+**QuEra's Bloqade SDK for Neutral Atom Quantum Computing**
+- add text here
+- add text here
 
 ## How to Use This Repository
 
 ## Experiments
 
 ## Notes
+Since the purpose of the Quantum Fourier Transform is to apply a phase to each qubit of a created superposition state, measuring in the computational basis does not yield very useful information. The expected results are an equal probability distribution across all bitstrings. To improve this experiment, it could be worthwhile to integrate the QFT unitary into the Phase Estimation Algorithm to see how results may vary -- or to run a different algorithm/process altogether.
 
-## Team Contributors
 
 ## References
 ### General
