@@ -23,8 +23,8 @@ This project tests and compares performance of the **Quantum Fourier Transform (
 - add text here
 
 **IBM Qiskit for Superconducting Quantum Computers**
-- add text here
-- add text here
+- Utilizes the Qiskit SDK to construct circuits for transmon qubits with restricted connectivity
+- Employs FakeManilaV2 to simulate realistic device noise (relaxation, dephasing, and gate errors) based on historical calibration data
 
 **QuEra's Bloqade SDK for Neutral Atom Quantum Computing**
 - add text here
@@ -53,3 +53,8 @@ Since the purpose of the Quantum Fourier Transform is to apply a phase to each q
 - https://docs.ionq.com/
 - https://www.quera.com/glossary/trapped-ions
 - https://arxiv.org/pdf/2404.11572
+
+### Superconducting Quantum Computing
+- https://www.ibm.com/quantum/qiskit
+- https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/fake_provider
+- https://arxiv.org/abs/1903.04800
