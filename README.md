@@ -19,8 +19,8 @@ This project tests and compares performance of the **Quantum Fourier Transform (
 - Produces results as Fock states that can be converted to bitstrings
 
 **PennyLane for Quantum Computing with Trapped Ions**
-- add text here
-- add text here
+- Uses IonQ platform to simulate QFT algorithm
+- Generate noise with the probability of 0.2 in the depolarizing channel for simulating noisy model
 
 **IBM Qiskit for Superconducting Quantum Computers**
 - add text here
@@ -31,8 +31,9 @@ This project tests and compares performance of the **Quantum Fourier Transform (
 - add text here
 
 ## How to Use This Repository
+This project requires installing additional Python libraries in order to run correctly. The installation steps are provided in `set_up.sh`. The required Python virtual environment version is Python ≥ 3.10.
 
-## Experiments
+The `set_up.sh` script must be run in the same directory that contains the `.venv` folder. If it is run from a different location, the commands listed in the script should be executed manually in the terminal, as the virtual environment name is explicitly referenced there.
 
 ## Notes
 Since the purpose of the Quantum Fourier Transform is to apply a phase to each qubit of a created superposition state, measuring in the computational basis does not yield very useful information. The expected results are an equal probability distribution across all bitstrings. To improve this experiment, it could be worthwhile to integrate the QFT unitary into the Phase Estimation Algorithm to see how results may vary -- or to run a different algorithm/process altogether.
