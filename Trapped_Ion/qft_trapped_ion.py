@@ -55,7 +55,7 @@ def qft_trapped_ion_noisy(n: int, config: list[list[int]], shots=1) -> map:
     def circuit():
         # Adding noise
         for w in range(n):
-            qml.DepolarizingChannel(0.1, wires=w)
+            qml.DepolarizingChannel(0.2, wires=w)
 
         for i in range(n):
             if config[i] == 1:
